@@ -26,6 +26,7 @@ describe('render', () => {
         success: false
       };
       wrapper = setup(initialState);
+      return;
     });
     test('redners component without error', () => {
       const component = findByTestAttr(wrapper, 'component-input');
@@ -41,9 +42,26 @@ describe('render', () => {
     });
   });
   describe('word has been guessed correctly', () => {
-    test('redners component without error', () => {});
-    test('does not render input box', () => {});
-    test('does not render submit box', () => {});
+    let wrapper;
+    beforeEach(() => {
+      const initialState = {
+        success: true
+      };
+      wrapper = setup(initialState);
+      return;
+    });
+    test('redners component without error', () => {
+      const component = findByTestAttr(wrapper, 'component-input');
+      expect(component.length).toBe(1);
+    });
+    test('does not render input box', () => {
+      const inputBox = findByTestAttr(wrapper, 'input-box');
+      expect(inputBox.length).toBe(0);
+    });
+    test('does not render submit box', () => {
+      const submitButton = findByTestAttr(wrapper, 'submit-button');
+      expect(submitButton.length).toBe(0);
+    });
   });
 });
 

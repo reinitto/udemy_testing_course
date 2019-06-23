@@ -13,7 +13,7 @@ export class UnconnectedApp extends Component {
   }
 
   render() {
-    const { success, guessedWords } = this.props;
+    const { success, guessedWords, secretWord } = this.props;
     return (
       <div className='container'>
         <h1>Guess that word!</h1>
